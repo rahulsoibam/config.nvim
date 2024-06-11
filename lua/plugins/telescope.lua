@@ -127,7 +127,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- fix for when oil.nvim is used instead of netrw
       -- check if the path starts with the 'oil://' scheme and remove it
       if string.sub(current_file, 1, 6) == 'oil://' then
-        print 'removing oil://'
         current_file = string.sub(current_file, 7)
       end
       -- If the buffer is not associated with a file, return nil
