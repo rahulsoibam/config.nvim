@@ -14,7 +14,6 @@ return { -- Highlight, edit, and navigate code
       'html',
       'lua',
       'luadoc',
-      'markdown',
       'vim',
       'vimdoc',
     },
