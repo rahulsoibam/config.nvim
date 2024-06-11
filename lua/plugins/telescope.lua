@@ -70,6 +70,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
         path_display = { 'truncate ' },
         mappings = {
           i = {
+            ['<C-h>'] = 'which_key',
+            ['<C-y>'] = require('telescope.actions').select_default,
             -- ['<C-k>'] = require('telescope.actions').move_selection_previous, -- move to prev result
             -- ['<C-j>'] = require('telescope.actions').move_selection_next, -- move to next result
             ['<C-q>'] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
