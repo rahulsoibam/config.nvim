@@ -24,6 +24,9 @@ vim.opt.clipboard = 'unnamedplus'
 vim.opt.breakindent = true
 
 vim.opt.smartindent = true
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
 
 -- Save undo history
 vim.opt.undofile = true
@@ -61,3 +64,4 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+vim.opt.expandtab = true
