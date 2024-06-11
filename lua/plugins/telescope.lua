@@ -70,8 +70,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
         path_display = { 'truncate ' },
         mappings = {
           i = {
-            ['<C-k>'] = require('telescope.actions').move_selection_previous, -- move to prev result
-            ['<C-j>'] = require('telescope.actions').move_selection_next, -- move to next result
+            -- ['<C-k>'] = require('telescope.actions').move_selection_previous, -- move to prev result
+            -- ['<C-j>'] = require('telescope.actions').move_selection_next, -- move to next result
             ['<C-q>'] = require('telescope.actions').send_selected_to_qflist + require('telescope.actions').open_qflist,
             ['<c-enter>'] = 'to_fuzzy_refine',
           },
@@ -128,7 +128,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Lists previously open files
     vim.keymap.set('n', '<leader>s.', builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
     -- Lists open buffers in current neovim instance
-    vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
+    vim.keymap.set('n', '<leader>sb', builtin.buffers, { desc = '[S]earch existing [B]uffers' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
