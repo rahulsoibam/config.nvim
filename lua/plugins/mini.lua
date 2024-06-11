@@ -18,7 +18,7 @@ return { -- Collection of various small independent plugins/modules
 
     require('mini.comment').setup()
 
-    require('mini.files').setup()
+    -- require('mini.files').setup()
 
     -- Simple and easy statusline.
     --  You could remove this setup call if you don't like it,
