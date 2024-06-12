@@ -114,6 +114,13 @@ return { -- Autocompletion
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format {
+          menu = { -- showing type in menu
+            nvim_lsp = '[LSP]',
+            path = '[Path]',
+            buffer = '[Buffer]',
+            luasnip = '[LuaSnip]',
+            vim_dadbod_completion = '[Dadbod]',
+          },
           maxwidth = 50,
           ellipsis_char = '...',
         },
