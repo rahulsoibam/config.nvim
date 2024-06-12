@@ -80,6 +80,10 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = tr
 -- delete single character without copying into register
 vim.keymap.set('n', 'x', '"_x')
 
+-- switch buffers
+vim.keymap.set('n', '<C-h>', ':bprev<CR>')
+vim.keymap.set('n', '<C-l>', ':bnext<CR>')
+
 -- keymap to add current date and time, useful for logging.
 vim.keymap.set('n', '<leader>da', function()
   -- Get the current date and time with the desired format
