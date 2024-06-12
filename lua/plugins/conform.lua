@@ -8,7 +8,8 @@ return { -- Autoformat
     local ensure_installed = {
       'stylua',
       'goimports',
-      -- 'gofumpt',
+      'prettierd',
+      'prettier',
       -- 'goimports-reviser',
     }
 
@@ -23,6 +24,13 @@ return { -- Autoformat
       formatters_by_ft = {
         lua = { 'stylua' },
         go = { 'goimports' },
+        typescript = { { 'prettierd', 'prettier' } },
+        typescriptreact = { { 'prettierd', 'prettier' } },
+        javascript = { { 'prettierd', 'prettier' } },
+        javascriptreact = { { 'prettierd', 'prettier' } },
+        json = { { 'prettierd', 'prettier' } },
+        html = { { 'prettierd', 'prettier' } },
+        css = { { 'prettierd', 'prettier' } },
       },
 
       format_on_save = function(bufnr)
