@@ -91,3 +91,7 @@ for name, icon in pairs(symbols) do
   local hl = 'DiagnosticSign' .. name
   vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
 end
+
+-- [[ Global Statusline ]]
+vim.opt.laststatus = 3
+vim.cmd.hi 'WinSeparator guibg=None'
