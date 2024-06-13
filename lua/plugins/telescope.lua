@@ -199,6 +199,6 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     vim.api.nvim_create_user_command('LiveGrepGitRoot', live_grep_git_root, {})
 
-    vim.keymap.set('n', '<leader>sg', ':LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
+    vim.keymap.set('n', '<leader>sg', '<cmd>LiveGrepGitRoot<cr>', { desc = '[S]earch by [G]rep on Git Root' })
   end,
 }
