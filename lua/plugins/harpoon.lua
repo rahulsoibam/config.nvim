@@ -6,7 +6,8 @@ return {
     harpoon:setup()
 
     -- add to harpoon list ([M]ark to harpoon)
-    vim.keymap.set('n', '<C-m>', function()
+    -- do not use <C-M> as it's the same as <CR> in NeoVim; the enter key will stop working in normal mode
+    vim.keymap.set('n', '<leader>m', function()
       harpoon:list():add()
     end, { desc = 'Harpoon: mark buffer' })
     -- toggle [H]arpoon
