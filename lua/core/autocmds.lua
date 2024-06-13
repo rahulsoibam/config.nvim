@@ -11,3 +11,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd({ 'BufWinLeave' }, {
+  pattern = { '*.*' },
+  group = vim.api.nvim_create_augroup('remember_folds', { clear = false }),
+  desc = 'save view (folds), when closing file',
+  command = 'mkview',
+})
+vim.api.nvim_create_autocmd({ 'BufWinEnter' }, {
+  pattern = { '*.*' },
+  group = vim.api.nvim_create_augroup('remember_folds', { clear = false }),
+  desc = 'load view (folds), when opening file',
+  command = 'silent! loadview',
+})
