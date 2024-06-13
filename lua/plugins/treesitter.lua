@@ -1,9 +1,6 @@
 return { -- Highlight, edit, and navigate code
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
-  dependencies = {
-    'windwp/nvim-ts-autotag',
-  },
   config = function()
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
@@ -37,10 +34,6 @@ return { -- Highlight, edit, and navigate code
         'dockerfile',
         'gitignore',
         'query',
-      },
-      -- enable autotagging (w/ nvim-ts-autotag plugin)
-      autotag = {
-        enable = true,
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
