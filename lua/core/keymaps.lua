@@ -31,7 +31,7 @@ end, { desc = 'Toggle relative line numbers' })
 -- source current file
 vim.keymap.set('n', '<leader><leader>', function()
   vim.cmd 'so'
-end)
+end, { desc = 'Source current file' })
 
 -- move visual mode selected block. also autoindents inside blocks
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
