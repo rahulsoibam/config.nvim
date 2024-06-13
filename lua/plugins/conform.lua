@@ -13,13 +13,13 @@ return { -- Autoformat
       -- 'goimports-reviser',
     }
 
-    require('mason-tool-installer').setup {
+    require('mason-tool-installer').setup({
       ensure_installed = ensure_installed,
-    }
+    })
 
-    local conform = require 'conform'
+    local conform = require('conform')
 
-    conform.setup {
+    conform.setup({
       notify_on_error = true,
       formatters_by_ft = {
         lua = { 'stylua' },
@@ -43,13 +43,13 @@ return { -- Autoformat
           lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
         }
       end,
-    }
+    })
   end,
   keys = {
     {
       '<leader>f',
       function()
-        require('conform').format { async = true, lsp_fallback = true }
+        require('conform').format({ async = true, lsp_fallback = true })
       end,
       mode = '',
       desc = '[F]ormat buffer',

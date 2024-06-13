@@ -9,7 +9,7 @@ return { -- Autocompletion
         -- Build Step is needed for regex support in snippets.
         -- This step is not supported in many windows environments.
         -- Remove the below condition to re-enable on windows.
-        if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
+        if vim.fn.has('win32') == 1 or vim.fn.executable('make') == 0 then
           return
         end
         return 'make install_jsregexp'
@@ -39,12 +39,12 @@ return { -- Autocompletion
   },
   config = function()
     -- See `:help cmp`
-    local cmp = require 'cmp'
-    local luasnip = require 'luasnip'
-    local lspkind = require 'lspkind'
-    luasnip.config.setup {}
+    local cmp = require('cmp')
+    local luasnip = require('luasnip')
+    local lspkind = require('lspkind')
+    luasnip.config.setup({})
 
-    cmp.setup {
+    cmp.setup({
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -56,7 +56,7 @@ return { -- Autocompletion
       -- chosen, you will need to read `:help ins-completion`
       --
       -- No, but seriously. Please read `:help ins-completion`, it is really good!
-      mapping = cmp.mapping.preset.insert {
+      mapping = cmp.mapping.preset.insert({
         -- Select the [n]ext item
         ['<C-n>'] = cmp.mapping.select_next_item(),
         -- Select the [p]revious item
@@ -69,7 +69,7 @@ return { -- Autocompletion
         -- Accept ([y]es) the completion.
         --  This will auto-import if your LSP supports it.
         --  This will expand snippets if the LSP sent a snippet.
-        ['<C-y>'] = cmp.mapping.confirm { select = true },
+        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
 
         -- If you prefer more traditional completion keymaps,
         -- you can uncomment the following lines
@@ -80,7 +80,7 @@ return { -- Autocompletion
         -- Manually trigger a completion from nvim-cmp.
         --  Generally you don't need this, because nvim-cmp will display
         --  completions whenever it has completion options available.
-        ['<C-Space>'] = cmp.mapping.complete {},
+        ['<C-Space>'] = cmp.mapping.complete({}),
 
         -- Think of <c-l> as moving to the right of your snippet expansion.
         --  So if you have a snippet that's like:
@@ -103,7 +103,7 @@ return { -- Autocompletion
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
-      },
+      }),
       sources = {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
@@ -113,7 +113,7 @@ return { -- Autocompletion
 
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
-        format = lspkind.cmp_format {
+        format = lspkind.cmp_format({
           menu = { -- showing type in menu
             nvim_lsp = '[LSP]',
             path = '[Path]',
@@ -123,10 +123,10 @@ return { -- Autocompletion
           },
           maxwidth = 50,
           ellipsis_char = '...',
-        },
+        }),
         expandable_indicator = true,
       },
-    }
+    })
     -- Setup up vim-dadbod
     cmp.setup.filetype({ 'sql' }, {
       sources = {

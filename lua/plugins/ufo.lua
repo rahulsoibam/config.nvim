@@ -36,13 +36,13 @@ return {
       return newVirtText
     end
 
-    require('ufo').setup {
+    require('ufo').setup({
       ---@diagnostic disable-next-line: unused-local
       provider_selector = function(bufnr, filetype, buftype)
         return { 'lsp', 'indent' }
       end,
       fold_virt_text_handler = handler,
-    }
+    })
 
     vim.keymap.set('n', 'zR', require('ufo').openAllFolds, { desc = '[R]eveal all folds' })
     vim.keymap.set('n', 'zM', require('ufo').closeAllFolds, { desc = 'Close all folds' })

@@ -2,9 +2,9 @@ return {
   'akinsho/toggleterm.nvim',
   version = '*',
   config = function()
-    local toggleterm = require 'toggleterm'
+    local toggleterm = require('toggleterm')
 
-    toggleterm.setup {
+    toggleterm.setup({
       size = 25,
       -- toggle last opened terminal
       -- if you prefix the mapping with a number that particular terminal will be opened.
@@ -29,11 +29,11 @@ return {
           background = 'Normal',
         },
       },
-    }
+    })
 
     local Terminal = require('toggleterm.terminal').Terminal
 
-    local floating_terminal = Terminal:new {
+    local floating_terminal = Terminal:new({
       -- the following does not work, pass the size in :toggle() as argument instead.
       -- https://github.com/akinsho/toggleterm.nvim/issues/187
       -- size = 20,
@@ -45,35 +45,35 @@ return {
       direction = 'float',
       close_on_exit = true,
       auto_scroll = true,
-    }
+    })
     -- NOTE: separate terminal for quick use, works in insert, terminal, normal mode
     vim.keymap.set({ 'n', 'i', 't' }, [[<C-\>]], function()
       floating_terminal:toggle()
     end, { desc = 'Floating Terminal' })
 
     -- [[ Horizontal Terminal ]]
-    local horizontal_terminal = Terminal:new {
+    local horizontal_terminal = Terminal:new({
       name = 'Horizontal Terminal',
       hidden = true,
       count = 101,
       direction = 'horizontal',
       close_on_exit = true,
       auto_scroll = true,
-    }
+    })
     -- pressing ` would be slightly slower when in terminal but that should be fine.
     vim.keymap.set({ 'n', 't' }, [[`\]], function()
       horizontal_terminal:toggle(25)
     end, { desc = 'Horizontal Terminal' })
 
     -- [[ Vertical Terminal ]]
-    local vertical_terminal = Terminal:new {
+    local vertical_terminal = Terminal:new({
       name = 'Vertical Terminal',
       hidden = true,
       count = 9,
       direction = 'vertical',
       close_on_exit = true,
       auto_scroll = true,
-    }
+    })
     -- pressing 9 would be slightly slower when in terminal but that should be fine.
     vim.keymap.set({ 'n', 't' }, [[9\]], function()
       vertical_terminal:toggle(80)

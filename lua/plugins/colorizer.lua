@@ -4,13 +4,13 @@ return {
   'NvChad/nvim-colorizer.lua',
   event = { 'BufReadPre', 'BufNewFile' },
   config = function()
-    require('colorizer').setup {
+    require('colorizer').setup({
       filetypes = {
         css = { rgb_fn = true },
         'javascript',
         html = { mode = 'foreground' },
       },
       user_default_options = { mode = 'background' },
-    }
+    })
   end,
 }

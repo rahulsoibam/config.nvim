@@ -10,7 +10,7 @@ return { -- Highlight, edit, and navigate code
     -- Prefer git instead of curl in order to improve connectivity in some environments
     require('nvim-treesitter.install').prefer_git = true
     ---@diagnostic disable-next-line: missing-fields
-    require('nvim-treesitter.configs').setup {
+    require('nvim-treesitter.configs').setup({
       ensure_installed = {
         'bash',
         'c',
@@ -61,7 +61,7 @@ return { -- Highlight, edit, and navigate code
           node_decremental = '<bs>',
         },
       },
-    }
+    })
 
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:

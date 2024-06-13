@@ -35,7 +35,7 @@ vim.opt.wrap = true -- disable line wrapping
 -- turn off swapfile
 -- vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 -- Save undo history
 vim.opt.undofile = true
 
@@ -94,4 +94,4 @@ end
 
 -- [[ Global Statusline ]]
 vim.opt.laststatus = 3
-vim.cmd.hi 'WinSeparator guibg=None'
+vim.cmd.hi('WinSeparator guibg=None')

@@ -14,7 +14,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
       -- `cond` is a condition used to determine whether this plugin should be
       -- installed and loaded.
       cond = function()
-        return vim.fn.executable 'make' == 1
+        return vim.fn.executable('make') == 1
       end,
     },
     { 'nvim-telescope/telescope-ui-select.nvim' },
@@ -44,7 +44,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- [[ Configure Telescope ]]
     -- See `:help telescope` and `:help telescope.setup()`
-    require('telescope').setup {
+    require('telescope').setup({
       -- You can put your default mappings / updates / etc. in here
       --  All the info you're looking for is in `:help telescope.setup()`
       defaults = { -- configure to use ripgrep
@@ -103,13 +103,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
           require('telescope.themes').get_dropdown(),
         },
       },
-    }
+    })
 
     -- Enable Telescope extensions if they are installed
     pcall(require('telescope').load_extension, 'fzf')
     pcall(require('telescope').load_extension, 'ui-select')
     -- See `:help telescope.builtin`
-    local builtin = require 'telescope.builtin'
+    local builtin = require('telescope.builtin')
     vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
     vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
     -- Lists files in your current working directory, respects .gitignore
@@ -135,24 +135,24 @@ return { -- Fuzzy Finder (files, lsp, etc)
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
       -- You can pass additional configuration to Telescope to change the theme, layout, etc.
-      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+      builtin.current_buffer_fuzzy_find(require('telescope.themes').get_dropdown({
         winblend = 10,
         previewer = false,
-      })
+      }))
     end, { desc = '[/] Fuzzily search in current buffer' })
 
     -- It's also possible to pass additional configuration options.
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
     vim.keymap.set('n', '<leader>s/', function()
-      builtin.live_grep {
+      builtin.live_grep({
         grep_open_files = true,
         prompt_title = 'Live Grep in Open Files',
-      }
+      })
     end, { desc = '[S]earch [/] in Open Files' })
 
     -- Shortcut for searching your Neovim configuration files
     vim.keymap.set('n', '<leader>sn', function()
-      builtin.find_files { cwd = vim.fn.stdpath 'config' }
+      builtin.find_files({ cwd = vim.fn.stdpath('config') })
     end, { desc = '[S]earch [N]eovim files' })
 
     -- Telescope live_grep in git root
@@ -181,7 +181,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
         vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
 
       if vim.v.shell_error ~= 0 then
-        print 'Not a git repository. Searching on current working directory'
+        print('Not a git repository. Searching on current working directory')
         return cwd
       end
       return git_root
@@ -191,9 +191,9 @@ return { -- Fuzzy Finder (files, lsp, etc)
     local function live_grep_git_root()
       local git_root = find_git_root()
       if git_root then
-        builtin.live_grep {
+        builtin.live_grep({
           search_dirs = { git_root },
-        }
+        })
       end
     end
 

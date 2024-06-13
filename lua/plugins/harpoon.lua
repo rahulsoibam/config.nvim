@@ -2,7 +2,7 @@ return {
   'ThePrimeagen/harpoon',
   branch = 'harpoon2',
   config = function()
-    local harpoon = require 'harpoon'
+    local harpoon = require('harpoon')
     harpoon:setup()
 
     -- add to harpoon list ([M]ark to harpoon)

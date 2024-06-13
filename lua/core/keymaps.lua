@@ -30,7 +30,7 @@ end, { desc = 'Toggle relative line numbers' })
 
 -- source current file
 vim.keymap.set('n', '<leader><leader>', function()
-  vim.cmd 'so'
+  vim.cmd('so')
 end, { desc = 'Source current file' })
 
 -- move visual mode selected block. also autoindents inside blocks
@@ -87,7 +87,7 @@ vim.keymap.set('n', '<C-l>', ':bnext<CR>')
 -- keymap to add current date and time, useful for logging.
 vim.keymap.set('n', '<leader>da', function()
   -- Get the current date and time with the desired format
-  local datetime = os.date '%A, %d %B, %Y at %H:%M:%S'
+  local datetime = os.date('%A, %d %B, %Y at %H:%M:%S')
   -- Put the datetime string in the current buffer
   vim.api.nvim_put({ tostring(datetime) }, 'l', true, true)
 end, { desc = 'Insert current date and time' })

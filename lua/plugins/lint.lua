@@ -10,11 +10,11 @@ return {
       -- 'markdownlint',
     }
 
-    require('mason-tool-installer').setup {
+    require('mason-tool-installer').setup({
       ensure_installed = ensure_installed,
-    }
+    })
 
-    local lint = require 'lint'
+    local lint = require('lint')
     lint.linters_by_ft = {
       -- markdown = { 'markdownlint' },
     }

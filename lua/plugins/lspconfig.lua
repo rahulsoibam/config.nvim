@@ -127,7 +127,7 @@ return { -- LSP Configuration & Plugins
             group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
             callback = function(event2)
               vim.lsp.buf.clear_references()
-              vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+              vim.api.nvim_clear_autocmds({ group = 'kickstart-lsp-highlight', buffer = event2.buf })
             end,
           })
         end
@@ -157,9 +157,9 @@ return { -- LSP Configuration & Plugins
     capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
     -- support for languages not found in :Mason
-    require('lspconfig').gleam.setup {
+    require('lspconfig').gleam.setup({
       capabilities = capabilities,
-    }
+    })
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -219,9 +219,9 @@ return { -- LSP Configuration & Plugins
     -- for you, so that they are available from within Neovim.
     local ensure_installed = vim.tbl_keys(servers or {})
 
-    require('mason-lspconfig').setup {
+    require('mason-lspconfig').setup({
       ensure_installed = ensure_installed,
-    }
+    })
 
     local handlers = {
       function(server_name)
