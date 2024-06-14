@@ -22,12 +22,12 @@ return {
     local filename = function()
       local filename = vim.fn.expand('%:p')
       local home = vim.fn.expand('$HOME')
-      local oil_pattern = '^oil://'
+      -- local oil_pattern = '^oil://'
 
       -- Don't show anything for oil:// buffers
-      if filename:match(oil_pattern) then
-        return ''
-      end
+      -- if filename:match(oil_pattern) then
+      --   return ''
+      -- end
 
       -- Show relative path from home if in home folder, otherwise show full path
       if filename:sub(1, #home) == home then
