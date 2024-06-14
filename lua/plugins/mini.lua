@@ -1,5 +1,6 @@
 return { -- Collection of various small independent plugins/modules
   'echasnovski/mini.nvim',
+  dependencies = 'JoosepAlviste/nvim-ts-context-commentstring',
   config = function()
     -- Better Around/Inside textobjects
     --
@@ -16,7 +17,16 @@ return { -- Collection of various small independent plugins/modules
     -- - sr)'  - [S]urround [R]eplace [)] [']
     require('mini.surround').setup()
 
-    require('mini.comment').setup()
+    require('ts_context_commentstring').setup({
+      enable_autocmd = false,
+    })
+    require('mini.comment').setup({
+      options = {
+        custom_commentstring = function()
+          return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+        end,
+      },
+    })
 
     require('mini.misc').setup()
     -- [[ This works, when opening a terminal, it opens the parent dir of the file ]]
