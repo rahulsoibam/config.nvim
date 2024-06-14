@@ -18,6 +18,35 @@ return { -- Collection of various small independent plugins/modules
 
     require('mini.comment').setup()
 
+    require('mini.misc').setup()
+    -- [[ This works, when opening a terminal, it opens the parent dir of the file ]]
+    -- [[ BUT IT MESSES UP THE DEFAULT TELESCOPE FILE PICKER THAT I USE ]]
+    -- local dir = function()
+    --   local current_path = vim.fn.expand('%:p')
+    --
+    --   -- 1. Check if the current path is a directory
+    --   if vim.fn.isdirectory(current_path) == 1 then
+    --     return current_path
+    --   end
+    --
+    --   -- 2. Check if it starts with oil://
+    --   if current_path:match('^oil://') then
+    --     return current_path:gsub('^oil://', '')
+    --   end
+    --
+    --   -- 3. Check if it is a file
+    --   if vim.fn.filereadable(current_path) == 1 then
+    --     local file_dir = vim.fn.fnamemodify(current_path, ':h')
+    --     return vim.fn.fnamemodify(file_dir, ':h')
+    --   end
+    --
+    --   -- 4. For everything else, use the default behavior
+    --   return vim.fn.getcwd()
+    -- end
+    --
+    -- require('mini.misc').setup_auto_root(dir)
+    require('mini.misc').setup_restore_cursor({ center = true, ignore_filetype = { 'gitrebase', 'gitcommit' } })
+
     -- require('mini.files').setup()
 
     -- Simple and easy statusline.
