@@ -38,6 +38,8 @@ return {
       -- https://github.com/akinsho/toggleterm.nvim/issues/187
       -- size = 20,
       -- cmd = 'lazygit',
+      -- does not work with oil
+      -- dir = '%:p:h',
       name = 'Floating Terminal',
       hidden = true,
       -- NOTE: big number so that the number won't conflict and mess up the keymaps
@@ -78,5 +80,7 @@ return {
     vim.keymap.set({ 'n', 't' }, [[9\]], function()
       vertical_terminal:toggle(80)
     end, { desc = 'Vertical Terminal' })
+
+    vim.keymap.set('n', [[<M-\>]], '<cmd>ToggleTerm dir=%:p:h<CR>', { desc = 'Open terminal in current working dir' })
   end,
 }
