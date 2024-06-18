@@ -32,8 +32,8 @@ vim.opt.softtabstop = 4 -- 4 spaces for tabs (prettier default)
 -- line wrapping
 vim.opt.wrap = true -- disable line wrapping
 
--- turn off swapfile
--- vim.opt.swapfile = false
+-- turn off swapfile, if true, stuff like expo fast refresh not work
+vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv('HOME') .. '/.vim/undodir'
 -- Save undo history
@@ -95,3 +95,5 @@ end
 -- [[ Global Statusline ]]
 vim.opt.laststatus = 3
 vim.cmd.hi('WinSeparator guibg=None')
+
+vim.opt.title = true
