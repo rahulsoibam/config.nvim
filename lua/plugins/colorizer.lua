@@ -8,6 +8,9 @@ return {
       filetypes = {
         css = { rgb_fn = true },
         'javascript',
+        'javascriptreact',
+        'typescript',
+        'typescriptreact',
         html = { mode = 'foreground' },
       },
       user_default_options = { mode = 'background' },
