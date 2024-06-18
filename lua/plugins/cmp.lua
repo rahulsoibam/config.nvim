@@ -43,6 +43,8 @@ return { -- Autocompletion
     local luasnip = require('luasnip')
     local lspkind = require('lspkind')
     luasnip.config.setup({})
+    require('luasnip').filetype_extend('typescript', { 'typescriptreact' })
+    require('luasnip').filetype_extend('typescript', { 'html' })
 
     cmp.setup({
       snippet = {
