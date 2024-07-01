@@ -185,7 +185,13 @@ return { -- LSP Configuration & Plugins
       jsonls = {},
       cssls = {},
       html = {},
-      tsserver = {},
+      tsserver = {
+        init_options = {
+          preferences = {
+            disableSuggestions = true,
+          },
+        },
+      },
       tailwindcss = {},
       emmet_language_server = {},
       marksman = {},
