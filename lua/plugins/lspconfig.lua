@@ -188,7 +188,20 @@ return { -- LSP Configuration & Plugins
       ts_ls = {
         init_options = {
           preferences = {
+            importModuleSpecifier = 'non-relative',
             disableSuggestions = true,
+          },
+        },
+        settings = {
+          typescript = {
+            preferences = {
+              importModuleSpecifierPreference = 'non-relative',
+            },
+          },
+          javascript = {
+            preferences = {
+              importModuleSpecifierPreference = 'non-relative',
+            },
           },
         },
       },
