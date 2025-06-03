@@ -5,7 +5,7 @@
 
 -- line numbers
 vim.opt.relativenumber = true -- show relative line numbers
-vim.opt.number = true -- shows absolute line number on cursor line (when relative number is on)
+vim.opt.number = true         -- shows absolute line number on cursor line (when relative number is on)
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -24,10 +24,10 @@ vim.opt.breakindent = true
 -- tabs & indentation
 vim.opt.smartindent = true
 vim.opt.autoindent = true -- copy indent from current line when starting new one
-vim.opt.shiftwidth = 4 -- 4 spaces for indent width
-vim.opt.expandtab = true -- expand tab to spaces
+vim.opt.shiftwidth = 4    -- 4 spaces for indent width
+vim.opt.expandtab = true  -- expand tab to spaces
 vim.opt.tabstop = 4
-vim.opt.softtabstop = 4 -- 4 spaces for tabs (prettier default)
+vim.opt.softtabstop = 4   -- 4 spaces for tabs (prettier default)
 
 -- line wrapping
 vim.opt.wrap = true -- disable line wrapping
@@ -56,7 +56,7 @@ vim.opt.smartcase = true -- if you include mixed case in your search, assumes yo
 -- (have to use iterm2 or any other true color terminal)
 vim.opt.termguicolors = true
 vim.opt.background = 'dark' -- colorschemes that can be light or dark will be made dark
-vim.opt.signcolumn = 'yes' -- show sign column so that text doesn't shift
+vim.opt.signcolumn = 'yes'  -- show sign column so that text doesn't shift
 -- Show which line your cursor is on
 vim.opt.cursorline = true
 
@@ -85,12 +85,10 @@ vim.opt.scrolloff = 20
 
 vim.opt.colorcolumn = '120'
 
--- [[ set diagnostic symbols ]]
-local symbols = { Error = '󰅙', Info = '󰋼', Hint = '󰌵', Warn = '' }
-for name, icon in pairs(symbols) do
-  local hl = 'DiagnosticSign' .. name
-  vim.fn.sign_define(hl, { text = icon, numhl = hl, texthl = hl })
-end
+-- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
+-- instead raise a dialog asking if you wish to save the current file(s)
+-- See `:help 'confirm'`
+vim.o.confirm = true
 
 -- [[ Global Statusline ]]
 vim.opt.laststatus = 3

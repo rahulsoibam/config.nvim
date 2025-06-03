@@ -1,9 +1,10 @@
 return { -- Autoformat
   'stevearc/conform.nvim',
-  lazy = false,
   dependencies = {
     'WhoIsSethDaniel/mason-tool-installer.nvim',
   },
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
   config = function()
     local ensure_installed = {
       'stylua',
@@ -49,7 +50,7 @@ return { -- Autoformat
     {
       '<leader>f',
       function()
-        require('conform').format({ async = true, lsp_fallback = true })
+        require('conform').format({ async = true, lsp_format = 'fallback' })
       end,
       mode = '',
       desc = '[F]ormat buffer',
