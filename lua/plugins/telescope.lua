@@ -1,7 +1,8 @@
 return { -- Fuzzy Finder (files, lsp, etc)
   'nvim-telescope/telescope.nvim',
   event = 'VimEnter',
-  branch = '0.1.x',
+  -- branch = '0.1.x',
+  branch = 'master',
   dependencies = {
     'nvim-lua/plenary.nvim',
     { -- If encountering errors, see telescope-fzf-native README for installation instructions
@@ -20,7 +21,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     { 'nvim-telescope/telescope-ui-select.nvim' },
 
     -- Useful for getting pretty icons, but requires a Nerd Font.
-    { 'nvim-tree/nvim-web-devicons', enabled = vim.g.have_nerd_font },
+    { 'nvim-tree/nvim-web-devicons',            enabled = vim.g.have_nerd_font },
   },
   config = function()
     -- Telescope is a fuzzy finder that comes with a lot of different things that
@@ -50,13 +51,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
       defaults = { -- configure to use ripgrep
         vimgrep_arguments = {
           'rg',
-          '--follow', -- Follow symbolic links
-          '--hidden', -- Search for hidden files
-          '--no-heading', -- Don't group matches by each file
+          '--follow',        -- Follow symbolic links
+          '--hidden',        -- Search for hidden files
+          '--no-heading',    -- Don't group matches by each file
           '--with-filename', -- Print the file path with the matched lines
-          '--line-number', -- Show line numbers
-          '--column', -- Show column numbers
-          '--smart-case', -- Smart case search
+          '--line-number',   -- Show line numbers
+          '--column',        -- Show column numbers
+          '--smart-case',    -- Smart case search
 
           -- Exclude some patterns from search
           '--glob=!**/.git/*',
@@ -178,7 +179,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
       -- Find the Git root directory from the current file's path
       local git_root =
-        vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
+          vim.fn.systemlist('git -C ' .. vim.fn.escape(current_dir, ' ') .. ' rev-parse --show-toplevel')[1]
 
       if vim.v.shell_error ~= 0 then
         print('Not a git repository. Searching on current working directory')
