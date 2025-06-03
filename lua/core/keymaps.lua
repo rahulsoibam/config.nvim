@@ -29,9 +29,12 @@ vim.keymap.set('n', '<leader>n', function()
 end, { desc = 'Toggle relative line numbers' })
 
 -- source current file
-vim.keymap.set('n', '<leader><leader>', function()
+vim.keymap.set('n', '<leader>so', function()
   vim.cmd('so')
 end, { desc = 'Source current file' })
+
+-- disable space space because this triggers when I mistakenly press space twice while trying to use telescope
+vim.keymap.set('n', '<leader><leader>', '<nop>')
 
 -- move visual mode selected block. also autoindents inside blocks
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
