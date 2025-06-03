@@ -14,6 +14,8 @@ return { -- Highlight, edit, and navigate code
         'go',
         'gleam',
         'elixir',
+        'eex',
+        'heex',
         'markdown',
         'markdown_inline',
         'javascript',
