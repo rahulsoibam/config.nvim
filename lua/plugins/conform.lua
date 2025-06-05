@@ -6,18 +6,6 @@ return { -- Autoformat
   event = { 'BufWritePre' },
   cmd = { 'ConformInfo' },
   config = function()
-    local ensure_installed = {
-      'stylua',
-      'goimports',
-      'prettierd',
-      'prettier',
-      -- 'goimports-reviser',
-    }
-
-    require('mason-tool-installer').setup({
-      ensure_installed = ensure_installed,
-    })
-
     local conform = require('conform')
 
     conform.setup({
