@@ -8,7 +8,7 @@ return { -- LSP Configuration & Plugins
 
     -- Useful status updates for LSP.
     -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-    { 'j-hui/fidget.nvim',       opts = {} },
+    { 'j-hui/fidget.nvim', opts = {} },
 
     -- Allows extra capabilities provided by blink.cmp
     'saghen/blink.cmp',
@@ -108,7 +108,7 @@ return { -- LSP Configuration & Plugins
         ---@param bufnr? integer some lsp support methods only in specific files
         ---@return boolean
         local function client_supports_method(client, method, bufnr)
-          if vim.fn.has 'nvim-0.11' == 1 then
+          if vim.fn.has('nvim-0.11') == 1 then
             return client:supports_method(method, bufnr)
           else
             ---@diagnostic disable-next-line: param-type-mismatch
@@ -150,7 +150,7 @@ return { -- LSP Configuration & Plugins
         -- This may be unwanted, since they displace some of your code
         if client and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
           nmap('<leader>th', function()
-            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
           end, '[T]oggle Inlay [H]ints')
         end
       end,
@@ -158,7 +158,7 @@ return { -- LSP Configuration & Plugins
 
     -- Diagnostic Config
     -- See :help vim.diagnostic.Opts
-    vim.diagnostic.config {
+    vim.diagnostic.config({
       severity_sort = true,
       float = { border = 'rounded', source = 'if_many' },
       underline = { severity = vim.diagnostic.severity.ERROR },
@@ -183,7 +183,7 @@ return { -- LSP Configuration & Plugins
           return diagnostic_message[diagnostic.severity]
         end,
       },
-    }
+    })
 
     -- LSP servers and clients are able to communicate to each other what features they support.
     --  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -225,28 +225,29 @@ return { -- LSP Configuration & Plugins
       jsonls = {},
       cssls = {},
       html = {},
-      ts_ls = {
-        init_options = {
-          preferences = {
-            importModuleSpecifier = 'non-relative',
-            disableSuggestions = true,
-          },
-        },
-        settings = {
-          typescript = {
-            preferences = {
-              importModuleSpecifierPreference = 'non-relative',
-            },
-          },
-          javascript = {
-            preferences = {
-              importModuleSpecifierPreference = 'non-relative',
-            },
-          },
-        },
-      },
+      vtsls = {},
+      -- Too slow for mid level to large projects - ditched in favor of vts_ls
+      -- ts_ls = {
+      --   init_options = {
+      --     preferences = {
+      --       importModuleSpecifier = 'non-relative',
+      --       disableSuggestions = true,
+      --     },
+      --   },
+      --   settings = {
+      --     typescript = {
+      --       preferences = {
+      --         importModuleSpecifierPreference = 'non-relative',
+      --       },
+      --     },
+      --     javascript = {
+      --       preferences = {
+      --         importModuleSpecifierPreference = 'non-relative',
+      --       },
+      --     },
+      --   },
+      -- },
       tailwindcss = {},
-      emmet_language_server = {},
       marksman = {},
       --
 
