@@ -197,9 +197,7 @@ return { -- LSP Configuration & Plugins
     capabilities = vim.tbl_deep_extend('force', capabilities, require('blink-cmp').get_lsp_capabilities())
 
     -- support for languages not found in :Mason
-    require('lspconfig').gleam.setup({
-      capabilities = capabilities,
-    })
+    vim.lsp.enable('gleam')
 
     -- Enable the following language servers
     --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
